@@ -10,7 +10,4 @@
 	<bean id="clientListVO" class="com.sps.vo.ClientListVO"/>
 	
 
-
-	
-
 </beans>

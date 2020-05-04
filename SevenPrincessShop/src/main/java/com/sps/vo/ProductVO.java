@@ -4,18 +4,95 @@ import java.sql.Date;
 
 public class ProductVO {
 
-	private int product_idx;				// ?ƒ?’ˆ idx	(= stock_product_idx)
-	private String product_name;			// ?ƒ?’ˆ ?´ë¦?
-	private int product_price;				// ?ƒ?’ˆ ê°?ê²?
-	private int product_category;			// ?ƒ?’ˆ ì¹´í…Œê³ ë¦¬
-	private Date product_registerDate;		// ì£¼ë¬¸ ?‚ ì§?
-	private int product_hit;				// ?ƒ?’ˆ ì¡°íšŒ?ˆ˜(ì¡°íšŒ?ˆ˜ê°? ?†’?? ê±? ë©”ì¸ ?˜?´ì§??— 6ê°œì”© ë³´ì—¬ì§?ê²? ?•œ?‹¤.)
-	private String product_imgPath;			// ?ƒ?’ˆ ?´ë¯¸ì? ê²½ë¡œ
-	private String product_Sstock;			// S?‚¬?´ì¦? ?¬ê³?
-	private String product_Mstock;			// M?‚¬?´ì¦? ?¬ê³?
-	private String product_Lstock;			// L?‚¬?´ì¦? ?¬ê³?
-	private String product_Fstock;			// F?‚¬?´ì¦? ?¬ê³?
-	private int product_stock;				// ì´? ?¬ê³? ?ˆ˜?Ÿ‰
+	private int product_idx;				// ?ï¿½ï¿½?ï¿½ï¿½ idx	(= stock_product_idx)
+	private String product_name;			// ?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ï¿½?
+	private int product_price;				// ?ï¿½ï¿½?ï¿½ï¿½ ï¿½?ï¿½?
+	private int product_category;			// ?ï¿½ï¿½?ï¿½ï¿½ ì¹´í…Œê³ ë¦¬
+	private Date product_registerDate;		// ì£¼ë¬¸ ?ï¿½ï¿½ï¿½?
+	private int product_hit;				// ?ï¿½ï¿½?ï¿½ï¿½ ì¡°íšŒ?ï¿½ï¿½(ì¡°íšŒ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?? ï¿½? ë©”ì¸ ?ï¿½ï¿½?ï¿½ï¿½ï¿½??ï¿½ï¿½ 6ê°œì”© ë³´ì—¬ï¿½?ï¿½? ?ï¿½ï¿½?ï¿½ï¿½.)
+	private String product_imgPath;			// ?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ë¯¸ï¿½? ê²½ë¡œ
+	private String product_Sstock;			// S?ï¿½ï¿½?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½?
+	private String product_Mstock;			// M?ï¿½ï¿½?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½?
+	private String product_Lstock;			// L?ï¿½ï¿½?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½?
+	private String product_Fstock;			// F?ï¿½ï¿½?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½?
+	private int product_stock;				// ï¿½? ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½
+	
+	public ProductVO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public int getProduct_idx() {
+		return product_idx;
+	}
+	public void setProduct_idx(int product_idx) {
+		this.product_idx = product_idx;
+	}
+	public String getProduct_name() {
+		return product_name;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+	public int getProduct_price() {
+		return product_price;
+	}
+	public void setProduct_price(int product_price) {
+		this.product_price = product_price;
+	}
+	public int getProduct_category() {
+		return product_category;
+	}
+	public void setProduct_category(int product_category) {
+		this.product_category = product_category;
+	}
+	public Date getProduct_registerDate() {
+		return product_registerDate;
+	}
+	public void setProduct_registerDate(Date product_registerDate) {
+		this.product_registerDate = product_registerDate;
+	}
+	public int getProduct_hit() {
+		return product_hit;
+	}
+	public void setProduct_hit(int product_hit) {
+		this.product_hit = product_hit;
+	}
+	public String getProduct_imgPath() {
+		return product_imgPath;
+	}
+	public void setProduct_imgPath(String product_imgPath) {
+		this.product_imgPath = product_imgPath;
+	}
+	public String getProduct_Sstock() {
+		return product_Sstock;
+	}
+	public void setProduct_Sstock(String product_Sstock) {
+		this.product_Sstock = product_Sstock;
+	}
+	public String getProduct_Mstock() {
+		return product_Mstock;
+	}
+	public void setProduct_Mstock(String product_Mstock) {
+		this.product_Mstock = product_Mstock;
+	}
+	public String getProduct_Lstock() {
+		return product_Lstock;
+	}
+	public void setProduct_Lstock(String product_Lstock) {
+		this.product_Lstock = product_Lstock;
+	}
+	public String getProduct_Fstock() {
+		return product_Fstock;
+	}
+	public void setProduct_Fstock(String product_Fstock) {
+		this.product_Fstock = product_Fstock;
+	}
+	public int getProduct_stock() {
+		return product_stock;
+	}
+	public void setProduct_stock(int product_stock) {
+		this.product_stock = product_stock;
+	}
 	
 	
 }

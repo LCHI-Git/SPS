@@ -12,13 +12,38 @@
 		values (#{client_name}, #{client_id}, #{client_password}, #{client_birthday}, #{client_phoneNumber}, #{client_address}, #{client_registerDate})
 	</insert>
 	
-	<select id="countMember" resultType="int">
-		select count(*) from client
-	</select>
 
 	<select id="selectMember" parameterType="int" resultType="com.sps.vo.ClientVO">
 		SELECT * FROM CLIENT WHERE client_idx = #{param1};
 	</select>
+	
+
+	<!-- 전체 회원 수 -->
+	<select id="countMember" resultType="int">
+		select count(*) from client
+	</select>
+	
+	
+	
+	
+	
+	<!-- @@@@@@@@@@@@@@@@@@@@ memberController @@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<!-- 아이디 찾기 -->
+	<select id="findId" parameterType="String" resultType="String">
+		select client_id from client where client_email = #{client_email}
+	</select>
+	
+
+	<!-- 임시비밀번호로 바꾸기 -->
+	<update id="changePwd" parameterType="Map">
+		update client set client_password = #{param1} where client_id = #{param2} 
+	</update>
+	
+	<!-- 비밀번호 찾는 계정이 있는지 확인 -->
+	<select id="findPwCount" parameterType="Map" resultType="int">
+		select count(*) from client where client_id = #{param1} and client_email = #{param2}
+	</select>
+	
 
 </mapper>
 

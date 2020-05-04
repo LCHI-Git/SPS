@@ -11,9 +11,20 @@ public class ClientVO {
 	private String client_birthday;			
 	private String client_phoneNumber;		
 	private String client_address;			
-	private String client_registerDate;		
+	private String client_registerDate;	
+	private String client_email;
 	
 	
+	public String getClient_email() {
+		return client_email;
+	}
+
+
+	public void setClient_email(String client_email) {
+		this.client_email = client_email;
+	}
+
+
 	public int getClient_idx() {
 		return client_idx;
 	}
@@ -99,8 +110,11 @@ public class ClientVO {
 		return "ClientVO [client_idx=" + client_idx + ", client_name=" + client_name + ", client_id=" + client_id
 				+ ", client_password=" + client_password + ", client_birthday=" + client_birthday
 				+ ", client_phoneNumber=" + client_phoneNumber + ", client_address=" + client_address
-				+ ", client_registerDate=" + client_registerDate + "]";
+				+ ", client_registerDate=" + client_registerDate + ", client_email=" + client_email + "]";
 	}
+
+
+
 	
 	
 	
