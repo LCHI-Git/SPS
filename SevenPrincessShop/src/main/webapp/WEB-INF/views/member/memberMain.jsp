@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<a href="findId">아이디 찾기<br/>
-<a href="findPw">비밀번호 찾기<br/>
+<a href="findIdPw">아이디 /비밀번호 찾기<br/>
 </body>
 </html>

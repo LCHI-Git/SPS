@@ -23,7 +23,33 @@ conmment: 이제 각자 시작하면 될듯 셋팅끝.
 
 
 
+05.05 MasterBrach 변동사항
+pom.xml수정
+=> commons-email(이메일을 보내기위한  Maven) 추가
 
+-ClientVO수정
+=> client_email 추가
+
+-view/member 생성
+findIdPw.jsp	//아이디 / 비번 찾기폼
+findIdResult.jsp	//아이디 결과 폼
+findPwResult	//비밀번호 결과 폼
+memberMain.jsp	//맵핑 테스트를 위한 jsp 페이지, 추후 삭제하겠슴당
+
+-com.sps.mail패키지 생성
+=> FindUtil클래스 생성
+=> MailUtil클래스 생성
+
+-MybatisSampleDAO클래스 수정
+
+-joinSample.xml 수정
+
+-findIdPW.css파일 생성
+
+-servler-context.xml 수정
+=> DB 한글 쿼리 오류로 드라이버 정보 빈 url 프로버티 수정
+
+////////////////////////////////////////////////////////////////05.05 가슬
 
 
 

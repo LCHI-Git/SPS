@@ -24,11 +24,14 @@ public interface MybatisSampleDAO {
 
 
 
-	String findId(String client_email);
+//	아이디 / 비밀번호 찾기
+	String findId(String name, String phoneNumber);
 	
 	void changePwd(String newPw, String client_id);
 
 	int findPwCount(String id, String email);
+
+
 
 
 	

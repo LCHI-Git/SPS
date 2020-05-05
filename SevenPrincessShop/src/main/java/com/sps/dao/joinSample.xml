@@ -29,8 +29,8 @@
 	
 	<!-- @@@@@@@@@@@@@@@@@@@@ memberController @@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 	<!-- 아이디 찾기 -->
-	<select id="findId" parameterType="String" resultType="String">
-		select client_id from client where client_email = #{client_email}
+	<select id="findId" parameterType="Map" resultType="String">
+		select client_id from client where client_name = #{param1} and client_phoneNumber = #{param2} 
 	</select>
 	
 

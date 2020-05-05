@@ -1,6 +1,7 @@
 package com.sps.controller;
 
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
@@ -53,9 +54,9 @@ public class MemberController {
 	}
 	
 //	findId폼으로 보내주는 맵핑 => 아이디 찾기 폼
-	@RequestMapping(value = "/findId")
+	@RequestMapping(value = "/findIdPw")
 	public String findId(HttpServletRequest request, Model model) throws Exception {
-		return "member/findId";
+		return "member/findIdPw";
 	}
 	
 //	findIdResult폼으로 보내주는 맵핑 => 찾은 아이디 확인 폼
@@ -65,8 +66,14 @@ public class MemberController {
 		//응답으로 내보낼 출력 스트림 얻어오기
 		PrintWriter out = response.getWriter();
 		MybatisSampleDAO mapper = sqlSession.getMapper(MybatisSampleDAO.class);
-		String id = mapper.findId(vo.getClient_email());
-		System.out.println("id : " + id);
+		String name = vo.getClient_name();
+		System.out.println(vo.getClient_name());
+		String phoneNumber = vo.getClient_phoneNumber();
+		System.out.println(vo.getClient_email());
+		
+		String id = mapper.findId(name, phoneNumber);
+		System.out.println(id);
+		
 		//아이디 검색 sql 실행 후 검색된 아이디가 없다면 alert창으로 문구 띄워주기
 		if(id == null) {
 			out.println("<script>");
@@ -85,12 +92,6 @@ public class MemberController {
 	
 	
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 비밀번호 찾기  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	
-//	findPw폼으로 보내주는 맵핑 => 비밀번호 찾기 폼
-	@RequestMapping(value = "/findPw")
-	public String findPw(HttpServletRequest request, Model model) throws Exception {
-		return "member/findPw";
-	}
 	
 //	이메일 보내기 메소드	
 //	findPw 폼에서 입력한 아이디와 이메일을 가지고 와서 비밀번호가 맞다면 임시비밀번호를 생성해서 가져온 이메일 주소로 임시비밀번호를 보내주고
@@ -112,7 +113,7 @@ public class MemberController {
 			out.println("</script>");
 			out.close();
 			
-			return "member/findPw";
+			return "member/findIdPw";
 			
 		  }else {
 	
@@ -137,10 +138,8 @@ public class MemberController {
 			//MailUtil클래스의 sendMail(보낼 이메일, 제목, 본문) 메소드를 실행한다.
 			MailUtil.sendMail(email, subject, msg);
 			
-			out.println("<script>");
-			out.println("alert('입력하신 이메일로 임시 비밀번호를 보냈습니다.');");
-			out.println("</script>");
-			out.close();
+		
+			model.addAttribute("email",email);
 		
 			return "member/findPwResult"; //로그인 화면 구현되면 로그인창으로 포워드 하기!!
 		  }
