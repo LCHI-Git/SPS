@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ShopController {
 
 	
-@RequestMapping(value = "/Main", method = RequestMethod.GET)
+@RequestMapping(value = "/", method = RequestMethod.GET)
 public String Main(Locale locale, Model model) {
 	
 	

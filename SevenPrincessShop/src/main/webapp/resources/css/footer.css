@@ -13,7 +13,6 @@
     padding-right: 15px;
     padding-left: 15px;
 }
-
 div{
 font-size: 12px;
 font-family: 'Roboto';
@@ -38,11 +37,9 @@ html{
     margin: 0px auto;
     clear: both;
 }
-@media (min-width: 1200px)
 .col-lg-offset-2 {
     margin-left: 16.66666667%;
-    }
-@media (min-width: 1200px)    
+    }  
 .col-lg-8 {
     width: 66.66666667%;
     float: left;
@@ -51,7 +48,6 @@ html{
     padding-right: 15px;
     padding-left: 15px;
 }
-@media (min-width: 1200px)
 .col-lg-3 {
     width: 25%;
     float: left;
@@ -60,7 +56,6 @@ html{
     padding-right: 15px;
     padding-left: 15px;
 }
-@media (min-width: 992px)
 .col-md-4 {
     position: relative;
     min-height: 1px;
@@ -143,7 +138,7 @@ element.style {
     cursor: pointer;
 }
 .w80 {
-    width: 80px !important;
+    width: 150px !important;
 }
 img-responsive{
    display: block;
@@ -172,7 +167,6 @@ img {
 .bottomArea2 div {
     color: #2c2c2c !important;
 }
-@media (min-width: 1200px)
 .col-lg-offset-2 {
     margin-left: 16.66666667%;
 }

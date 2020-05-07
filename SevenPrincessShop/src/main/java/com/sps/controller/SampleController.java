@@ -40,13 +40,13 @@ public class SampleController {
 	
 	
 	
-//	Sample 첫 시작화면 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-//		자동 root으로 sample 폴더의 sampleView1.jsp로 이동
-		return "sample/sampleView1";
-	}
-	
+////	Sample 첫 시작화면 
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public String home(Locale locale, Model model) {
+////		자동 root으로 sample 폴더의 sampleView1.jsp로 이동
+//		return "sample/sampleView1";
+//	}
+//	
 	
 	
 //	join폼으로 보내주는 맵핑

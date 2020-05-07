@@ -9,7 +9,7 @@
 <title>footer</title>
 
 <!-- css 적용 코드 -->
-<%-- <link href="${path}/resources/css/footer.css" rel="stylesheet"/> --%>
+<link href="${path}/resources/css/footer.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -46,13 +46,13 @@
 				<div class="col-xs-6 col-md-4 col-lg-3  bottomItem">
 					<div class="title">BANK INFO</div>
 					<ul>
-						<li>신한은행 110307032834 박진호</li>
+						<li>신한은행 110111222233 이찬호</li>
 					</ul>
 				</div>
 				<div class="col-xs-6 col-md-4 col-lg-3 bottomItem">
 					<div class="title">RETURN</div>
 					<ul>
-						<li>서울 양천구 곰달래로13길 8-1 (신월동) 101호</li>
+						<li>서울특별시 강남구 테헤란로 146 현익빌딩 3층,4층</li>
 					</ul>
 					<div style="margin-top:20px;"><img src="./images/icon/5555.png" class="img-responsive w80 cursorPointer"></div>
 				</div>
@@ -61,7 +61,7 @@
 					<ul>
 						<li>COMPANY : 세븐프린세스</li>
 						<li>OWNER : 이찬호</li>
-						<li>BUSINESS LICENSE : 029-29-59590 <a class="checkCompany" href="javascript:fnCheckCompany('029-29-59590');">사업자정보확인</a></li>
+						<li>BUSINESS LICENSE : 029-29-59590</li>
 						<li>ONLINE BUSINESS LICENSE : 2020-서울역삼-0486호</li>
 						<li>TEL : 010-6878-8517</li>
 						<li>E-MAIL : dla3946gns@naver.com</li>
@@ -82,10 +82,6 @@
 	</div>
 </div>
 
-<!-- footer 4 -->
-<div class="mobileTopBtn visible-sm visible-xs">
-	<img src="images/btnTop.png" onclick="fnMobileTop()">
-</div>
 
 </body>
 </html>

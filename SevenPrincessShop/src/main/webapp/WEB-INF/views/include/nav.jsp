@@ -18,7 +18,7 @@
 	<div class="contentLimit">	
 		<div class="col-xs-12 col-lg-8 col-lg-offset-2 ">			
 			<div class="row">
-				<nav class="navbar navbar-default">
+				<nav class="navbar-default">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 							<span class="sr-only">Toggle navigation</span>

@@ -9,7 +9,7 @@
 <title>header</title>
 
 <!-- css 적용 코드 -->
-<%-- <link href="${path}/resources/css/header.css" rel="stylesheet"/> --%>
+<link href="${path}/resources/css/header.css" rel="stylesheet"/>
 
 </head>
 <body>
