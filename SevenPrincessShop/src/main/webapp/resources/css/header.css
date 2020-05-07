@@ -128,7 +128,7 @@ a:-webkit-any-link {
 }
 
 .topArea .topCI img {
-	margin-bottom: 30px;
+	margin: auto;
 }
 
 .col-sm-3 {
@@ -149,12 +149,10 @@ form {
 	font-size: 12px;
 	padding-top: 40px;
 	border-radius: 0px !important;
-	margin-right: 0px;
-	margin-left: 800px;
+	margin: 0 auto;
 	position: relative;
 	display: table;
 	border-collapse: separate;
-	left: 250px;
 }
 
 }
@@ -172,7 +170,7 @@ form {
 	display: table;
 	border-collapse: separate;
 	margin-right: 0px;
-	margin-left: 800px;
+	margin-left: 0px;
 }
 
 .input-group .form-control:first-child {
@@ -180,7 +178,7 @@ form {
 	border-bottom-right-radius: 0;
 }
 
-.searchArea .form-control {
+.form-control {
 	border: 1px solid #7c7c7c;
 	box-shadow: none;
 	border-radius: 0px;
@@ -193,9 +191,10 @@ form {
 }
 
 .input-group-sm>.form-control {
-	height: 30px;
+	width:350px;
+	height: 50px;
 	padding: 5px 10px;
-	font-size: 12px;
+	font-size: 20px;
 	line-height: 1.5;
 }
 
@@ -203,7 +202,6 @@ form {
 	position: relative;
 	z-index: 2;
 	float: left;
-	width: 100%;
 	margin-bottom: 0;
 }
 
@@ -244,7 +242,7 @@ input {
 	border-collapse: separate;
 }
 
-.searchArea .input-group-btn .btn {
+.input-group-btn .btn {
 	background: #e7c4c2 !important;
 	border: 1px solid #7c7c7c;
 	border-left: 0px;
@@ -258,7 +256,7 @@ input {
 }
 
 .input-group-sm>.input-group-btn>.btn {
-	height: 30px;
+	height: 50px;
 	padding: 5px 10px;
 	font-size: 12px;
 	line-height: 1.5;
@@ -291,7 +289,7 @@ button {
 	margin: 0;
 	font: inherit;
 }
-
+input:focus, button:focus {outline:none;}
 /* 공통 */
 html {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
