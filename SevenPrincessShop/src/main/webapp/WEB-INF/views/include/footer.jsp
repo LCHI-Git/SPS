@@ -9,7 +9,7 @@
 <title>footer</title>
 
 <!-- css 적용 코드 -->
-<link href="${path}/resources/css/footer.css" rel="stylesheet"/>
+<%-- <link href="${path}/resources/css/footer.css" rel="stylesheet"/> --%>
 
 </head>
 <body>
@@ -54,7 +54,7 @@
 					<ul>
 						<li>서울 양천구 곰달래로13길 8-1 (신월동) 101호</li>
 					</ul>
-					<div style="margin-top:20px;"><img src="images/escrowNicePay.png" class="img-responsive w80 cursorPointer" onclick="window.open('https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=timenamu1m&amp;CoNo=4442900652','escrowHelp', 'width=500,height=380,scrollbars=auto,resizable=yes')"></div>
+					<div style="margin-top:20px;"><img src="./images/icon/5555.png" class="img-responsive w80 cursorPointer"></div>
 				</div>
 				<div class="col-xs-6 col-md-4 col-lg-3 bottomItem">
 					<div class="title">COMPANY INFO</div>
