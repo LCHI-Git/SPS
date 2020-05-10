@@ -12,11 +12,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ShopController {
 
 	
-@RequestMapping(value = "/", method = RequestMethod.GET)
+@RequestMapping(value = "/main", method = RequestMethod.GET)
 public String Main(Locale locale, Model model) {
 	
 	
 	return "mainView/Main";
+}	
+
+//	상품 상세페이지
+@RequestMapping(value = "/", method = RequestMethod.GET)
+public String productInfo(Locale locale, Model model) {
+	
+	
+	return "mainView/productInfo";
 }	
 	
 }

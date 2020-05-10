@@ -3,9 +3,10 @@ package com.sps.vo;
 public class Qboard {
 	
 	
-	private int qboard_idx;			// ì§ˆë¬¸ ?¸?±?Š¤
-	private int qboard_client_idx;	// ì§ˆë¬¸?•œ ?‚¬?š©??˜ ?¸?±?Š¤
-	private int qboard_product_idx;	// ì§ˆë¬¸ ê´?? ¨ ?ƒ?’ˆ(?•„?ˆ˜ ?•„?‹˜)
-	private String qboard_title;	// ì§ˆë¬¸ ?‹µë³?
-	private String qboard_content;	// ì§ˆë¬¸ ?‚´?š©
+	private int qboard_idx;			// ì§ˆë¬¸ ë‚ ì§œ
+	private int qboard_client_idx;	// ì§ˆë¬¸í•œ ê³ ê° ì¸ë±ìŠ¤
+	private int qboard_product_idx;	// ì§ˆë¬¸ì— ëŒ€í•œ ìƒí’ˆ ì¸ë±ìŠ¤(í•„ìˆ˜x)
+	private String qboard_title;	// ì§ˆë¬¸ ì œëª©
+	private String qboard_content;	// ì§ˆë¬¸ ë‚´ìš©
+	private String qboard_date;		// ì§ˆë¬¸ ë“±ë¡ ë‚ ì§œ
 }

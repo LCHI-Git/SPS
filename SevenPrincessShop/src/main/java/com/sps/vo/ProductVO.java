@@ -4,18 +4,21 @@ import java.sql.Date;
 
 public class ProductVO {
 
-	private int product_idx;				// ?ƒ?’ˆ idx	(= stock_product_idx)
-	private String product_name;			// ?ƒ?’ˆ ?´ë¦?
-	private int product_price;				// ?ƒ?’ˆ ê°?ê²?
-	private int product_category;			// ?ƒ?’ˆ ì¹´í…Œê³ ë¦¬
-	private Date product_registerDate;		// ì£¼ë¬¸ ?‚ ì§?
-	private int product_hit;				// ?ƒ?’ˆ ì¡°íšŒ?ˆ˜(ì¡°íšŒ?ˆ˜ê°? ?†’?? ê±? ë©”ì¸ ?˜?´ì§??— 6ê°œì”© ë³´ì—¬ì§?ê²? ?•œ?‹¤.)
-	private String product_imgPath;			// ?ƒ?’ˆ ?´ë¯¸ì? ê²½ë¡œ
-	private String product_Sstock;			// S?‚¬?´ì¦? ?¬ê³?
-	private String product_Mstock;			// M?‚¬?´ì¦? ?¬ê³?
-	private String product_Lstock;			// L?‚¬?´ì¦? ?¬ê³?
-	private String product_Fstock;			// F?‚¬?´ì¦? ?¬ê³?
-	private int product_stock;				// ì´? ?¬ê³? ?ˆ˜?Ÿ‰
+	private int product_idx;				// ìƒí’ˆ ì¸ë±ìŠ¤
+	private String product_name;			// ìƒí’ˆ ì´ë¦„
+	private int product_price;				// ìƒí’ˆ ê°€ê²©
+	private int product_category;			// ìƒí’ˆ ì¹´í…Œê³ ë¦¬(01~18)ì´ë¯¸ì§€ ì°¸ê³ 
+	private String product_registerDate;	// ìƒí’ˆ ë“±ë¡ ë‚ ì§œ
+	private int product_hit;				// ìƒí’ˆ ì¡°íšŒìˆ˜
+	private int product_stock;				// ìƒí’ˆì˜ ëª¨ë“  ì¬ê³ (STOCK í…Œì´ë¸”ì˜ ìƒí’ˆ ì¸ë±ìŠ¤ì— í•´ë‹¹í•˜ëŠ” stock ì´í•©)
+	private String product_imgPath;			// ìƒí’ˆ ì‚¬ì§„ ê²½ë¡œ (ex "/images/productImages/01/01_01/01_01" => .jpgë‚˜ _ìƒì„¸ì‚¬ì§„ ìˆ«ì.jpg ë”°ë¡œ ì¶”ê°€)
+	private int product_imgPathStock;		// ìƒì„¸ ì´ë¯¸ì§€ ê°œìˆ˜(ë°˜ë³µë¬¸ì— í•„ìš”)
 	
+	
+	private int stock_idx;				// ì¬ê³  ì¸ë±ìŠ¤
+	private int stock_product_idx;		// ìƒí’ˆ ì¸ë±ìŠ¤
+	private String stock_size;			// ìƒí’ˆì˜ ì‚¬ì´ì¦ˆ
+	private String stock_color;			// ìƒí’ˆì˜ ìƒ‰ìƒ
+	private int stock_stock;			// í•´ë‹¹ ì‚¬ì´ì¦ˆ, ìƒ‰ìƒ ìƒí’ˆì˜ ì¬ê³ 
 	
 }
