@@ -4,18 +4,115 @@ import java.sql.Date;
 
 public class ProductVO {
 
-	private int product_idx;				// ?ÉÅ?íà idx	(= stock_product_idx)
-	private String product_name;			// ?ÉÅ?íà ?ù¥Î¶?
-	private int product_price;				// ?ÉÅ?íà Í∞?Í≤?
-	private int product_category;			// ?ÉÅ?íà Ïπ¥ÌÖåÍ≥†Î¶¨
-	private Date product_registerDate;		// Ï£ºÎ¨∏ ?Ç†Ïß?
-	private int product_hit;				// ?ÉÅ?íà Ï°∞Ìöå?àò(Ï°∞Ìöå?àòÍ∞? ?Üí?? Í±? Î©îÏù∏ ?éò?ù¥Ïß??óê 6Í∞úÏî© Î≥¥Ïó¨Ïß?Í≤? ?ïú?ã§.)
-	private String product_imgPath;			// ?ÉÅ?íà ?ù¥ÎØ∏Ï? Í≤ΩÎ°ú
-	private String product_Sstock;			// S?Ç¨?ù¥Ï¶? ?û¨Í≥?
-	private String product_Mstock;			// M?Ç¨?ù¥Ï¶? ?û¨Í≥?
-	private String product_Lstock;			// L?Ç¨?ù¥Ï¶? ?û¨Í≥?
-	private String product_Fstock;			// F?Ç¨?ù¥Ï¶? ?û¨Í≥?
-	private int product_stock;				// Ï¥? ?û¨Í≥? ?àò?üâ
+	private int product_idx;				// ÏÉÅÌíà Ïù∏Îç±Ïä§
+	private String product_name;			// ÏÉÅÌíà Ïù¥Î¶Ñ
+	private int product_price;				// ÏÉÅÌíà Í∞ÄÍ≤©
+	private int product_category;			// ÏÉÅÌíà Ïπ¥ÌÖåÍ≥†Î¶¨(01~18)Ïù¥ÎØ∏ÏßÄ Ï∞∏Í≥†
+	private String product_registerDate;	// ÏÉÅÌíà Îì±Î°ù ÎÇ†Ïßú
+	private int product_hit;				// ÏÉÅÌíà Ï°∞ÌöåÏàò
+	private int product_stock;				// ÏÉÅÌíàÏùò Î™®Îì† Ïû¨Í≥†(STOCK ÌÖåÏù¥Î∏îÏùò ÏÉÅÌíà Ïù∏Îç±Ïä§Ïóê Ìï¥ÎãπÌïòÎäî stock Ï¥ùÌï©)
+	private String product_imgPath;			// ÏÉÅÌíà ÏÇ¨ÏßÑ Í≤ΩÎ°ú (ex "/images/productImages/01/01_01/01_01" => .jpgÎÇò _ÏÉÅÏÑ∏ÏÇ¨ÏßÑ Ïà´Ïûê.jpg Îî∞Î°ú Ï∂îÍ∞Ä)
+	private int product_imgPathStock;		// ÏÉÅÏÑ∏ Ïù¥ÎØ∏ÏßÄ Í∞úÏàò(Î∞òÎ≥µÎ¨∏Ïóê ÌïÑÏöî)
+
+	public ProductVO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public ProductVO(int product_idx, String product_name, int product_price, int product_category,
+			String product_registerDate, int product_hit, int product_stock, String product_imgPath,
+			int product_imgPathStock) {
+		super();
+		this.product_idx = product_idx;
+		this.product_name = product_name;
+		this.product_price = product_price;
+		this.product_category = product_category;
+		this.product_registerDate = product_registerDate;
+		this.product_hit = product_hit;
+		this.product_stock = product_stock;
+		this.product_imgPath = product_imgPath;
+		this.product_imgPathStock = product_imgPathStock;
+	}
+
+	public int getProduct_idx() {
+		return product_idx;
+	}
+
+	public void setProduct_idx(int product_idx) {
+		this.product_idx = product_idx;
+	}
+
+	public String getProduct_name() {
+		return product_name;
+	}
+
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+
+	public int getProduct_price() {
+		return product_price;
+	}
+
+	public void setProduct_price(int product_price) {
+		this.product_price = product_price;
+	}
+
+	public int getProduct_category() {
+		return product_category;
+	}
+
+	public void setProduct_category(int product_category) {
+		this.product_category = product_category;
+	}
+
+	public String getProduct_registerDate() {
+		return product_registerDate;
+	}
+
+	public void setProduct_registerDate(String product_registerDate) {
+		this.product_registerDate = product_registerDate;
+	}
+
+	public int getProduct_hit() {
+		return product_hit;
+	}
+
+	public void setProduct_hit(int product_hit) {
+		this.product_hit = product_hit;
+	}
+
+	public int getProduct_stock() {
+		return product_stock;
+	}
+
+	public void setProduct_stock(int product_stock) {
+		this.product_stock = product_stock;
+	}
+
+	public String getProduct_imgPath() {
+		return product_imgPath;
+	}
+
+	public void setProduct_imgPath(String product_imgPath) {
+		this.product_imgPath = product_imgPath;
+	}
+
+	public int getProduct_imgPathStock() {
+		return product_imgPathStock;
+	}
+
+	public void setProduct_imgPathStock(int product_imgPathStock) {
+		this.product_imgPathStock = product_imgPathStock;
+	}
+
+	@Override
+	public String toString() {
+		return "ProductVO [product_idx=" + product_idx + ", product_name=" + product_name + ", product_price="
+				+ product_price + ", product_category=" + product_category + ", product_registerDate="
+				+ product_registerDate + ", product_hit=" + product_hit + ", product_stock=" + product_stock
+				+ ", product_imgPath=" + product_imgPath + ", product_imgPathStock=" + product_imgPathStock + "]";
+	}
+	
 	
 	
 }
