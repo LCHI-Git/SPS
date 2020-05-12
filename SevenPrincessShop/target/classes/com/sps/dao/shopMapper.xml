@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
 <mapper namespace="com.sps.dao.spsDAO">
+
+
+<!-- 특정 상품 컬러 종류 -->
+<select id="getColor" parameterType="String" resultType="String">
+	SELECT stock_color 
+	FROM STOCK
+	WHERE stock_product_idx = #{param1}
+	GROUP BY stock_color;
+</select>
+
+
+
+<!-- 특정 상품 사이즈 종류 -->
+<select id="getSize" parameterType="String" resultType="String">
+	SELECT stock_size 
+	FROM STOCK
+	WHERE stock_product_idx = #{param1}
+	GROUP BY stock_size;
+</select>
+
+
+
+
+<!-- 특정 상품 정보 가지고 오기 -->
+<select id="getProductInfo" parameterType="String" resultType="com.sps.vo.ProductVO">
+SELECT * 
+FROM PRODUCT
+WHERE product_idx = #{param1}
+</select>
+
+
 
 </mapper>
