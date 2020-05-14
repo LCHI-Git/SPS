@@ -8,49 +8,177 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+var count = 0;
+var sizeList = new Array();
+var colorList = new Array();
+var stockList = new Array();
+
+///////////////////////// 찬호오빠한테 로그인 하세요 물어보기
+///////////////////////// 옵션 삭제할 때 배열에서도 삭제하고 거기에 공백 뺴기
+
+
+
+//	옵션 선택 삭제
+	function deleteOption(btnClass) {
+			
+			var del = $(btnClass).attr("class");
+			sizeList[del] = "";
+			colorList[del] = "";
+			stockList[del] = "";
+			
+			$('#' + del).empty();
+			$('#' + del).remove();
+		
+	}
+	
+		
+		
+//	옵션 선택
+	function selectOptionend() {
+		for (var i = 0; i < sizeList.length; i++) {
+			if(sizeList[i] == $("#sizeSel option:selected").val() && colorList[i] == $("#colorSel option:selected").val()){
+			
+			$("#check").attr("name", "select");
+			$('#colorSel option:eq(0)').attr('selected', 'selected');
+			$('#sizeSel option:eq(0)').attr('selected', 'selected');
+			$('#colorSel option:eq(0)').removeAttr('selected');
+			$('#sizeSel option:eq(0)').removeAttr('selected');
+			alert("이미 선택된 옵션입니다.");
+			return false;
+		}
+	}
+		if($("#colorSel option:selected").val() != ""){
+					sizeList.push($("#sizeSel option:selected").val());
+					colorList.push($("#colorSel option:selected").val());
+					stockList.push(1);
+					
+					var options = $("#sizeSel option:selected").val() + " / " + $("#colorSel option:selected").val();
+					var stockOption= "";
+					
+					for (var i = 1; i < 6; i++) {
+						stockOption =	stockOption +"<option value='" + i + "'>"+ i +"</option>";
+					}
+					
+					
+					$("#colorSelDiv").after("<div id = '" + count 
+							+ "' style='border:1px solid #d4c8cc; padding: 15px;')><div>"
+							+ options  
+					+"</div><div><select id=" + count +" onclick='selectStock(this.id)'>" 
+					+ stockOption + "</select></div><a href='#'><span class = '" 
+					+ count 
+					+ "' style='border:1px solid #d4c8cc; margin: 0 3px;' onclick='deleteOption(this)'> x </span></a></div>");
+				
+				$("#check").attr("name", "select");
+				$('#colorSel option:eq(0)').attr('selected', 'selected');
+				$('#sizeSel option:eq(0)').attr('selected', 'selected');
+				$('#colorSel option:eq(0)').removeAttr('selected');
+				$('#sizeSel option:eq(0)').removeAttr('selected');
+				count = count + 1;
+		}
+	}
+	
+//	수량 재선택
+	function selectStock(stock)  {
+		stockList[stock] = $("#"+ stock + "option:selected").val();
+	}
+
+//	옵션 중 컬러 먼저 선택
+	function selectOption() {
+		
+		//상위 사이즈 선택 창의 현재 select 벨류가 sizeIsNone 이면 사이즈 선택 알렛
+		if($("#check").attr("name") == "noneSelect"){
+			if($("#sizeSel option:selected").val() == "sizeIsNone"){
+	
+				alert("사이즈를 먼저 선택해주세요.");
+			
+			}
+		}
+		$("#check").attr("name", "noneSelect");
+	}
+	
+	var sendCode = "";
+	var client =  "${nowUser.client_id}";
+	
+//	장바구니 클릭
+	 function cart(){
+	if (client=="비회원"){
+			alert("로그인이 필요합니다.");
+			return false; 
+		}
+		alert("상품 "+ sizeList.length + "개가 장바구니에 담겼습니다.");
+		
+		for (var i = 0; i < sizeList.length; i++) {
+			sendCode += sizeList[i]+"_"+colorList[i]+"_"+stockList[i]+"/"; 
+		}
+			let idx = ${productVO.product_idx};
+			location.href = "insertCart?orderList_client_idx=" + ${nowUser.client_idx} + "&orderList_product_idx=" + idx +"&selectCode="+sendCode;
+	}
+	
+	
+//	바로 결제 클릭
+ 	function pay(){
+ 		if (client=="비회원"){
+			alert("로그인이 필요합니다.");
+			return false; 
+		}
+		for (var i = 0; i < sizeList.length; i++) {
+			sendCode += sizeList[i]+"_"+colorList[i]+"_"+stockList[i]+"/"; 
+		}
+			let idx = ${productVO.product_idx};
+			location.href = "pay?orderList_client_idx=" + ${nowUser.client_idx} + "&orderList_product_idx=" + idx +"&selectCode="+sendCode;
+	}
+
+</script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/css_js_link.html"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
-
+<%-- <form action="insertCart">
+	<input type="hidden" name="orderList_client_idx" value="${nowUser.client_idx}"/>
+	<input type="hidden" name="orderList_product_idx" value="${productVO.product_idx}"/>
+	<input id="sendCode" type="hidden" name="selectCode" value=""/>
+</form> --%>
 <div style="margin: 50px 15%;">
-<form action="pay" method="post">
+
 
 <!-- 상품 선택 -->
+<span id="check" style="display:none;" name="noneselect"></span>
 <div style="border: 1px solid #d4c8cc; padding: 15px; width: 100%; height: 450px">
-	<div style="height: 100%; width: 40%; position: relative; padding: 15px;">
 		<div class="imgDiv" style="width: 100%;">
 			<img src= "${productVO.product_imgPath}.jpg">
 		</div>
-	</div>
-	<div class="contentsDiv" style="height: 100%; width: 60%; position: relative;">
 		<div class="nameDiv">${productVO.product_name}</div>
 		<div class="priceDiv">
 			<div class="price">PRICE</div>
 			<div class="price">${productVO.product_price}</div>
 		</div>
+		
 		<div class="sizeDiv">
 			<div class="size">SIZE</div>
 			<div class="size">
-				<select>
-					<option>옵션 선택</option>
+				<select id="sizeSel" >
+					<option id="none" value="sizeIsNone" >옵션 선택</option>
 					<c:if test="${fn:length(size)> 0}">
 					<fmt:parseNumber var="sizeNum" type="number" value="${fn:length(size)}" />
 						<c:forEach var="i" begin="0" end="${sizeNum-1}" step="1">
-							<option value="${size[i]}">${size[i]}</option>
+							<option value="${size[i]}" >${size[i]}</option>
 						</c:forEach>
 					</c:if> 
 				</select>
 				
 			</div>
 		</div>
+		
 		<div class="colorDiv">
 			<div class="color">COLOR</div>
-			<div class="color">
-				<select>
-					<option>옵션 선택</option>
+			<div class="color" id="colorSelDiv">
+				<select id="colorSel" onclick="selectOption()" onchange="selectOptionend()">
+					<option id="none2" value="colorIsNone">옵션 선택</option>
 					<c:if test="${fn:length(color)> 0}">
 					
 					<fmt:parseNumber var="colorNum" type="number" value="${fn:length(color)}" />
@@ -59,23 +187,22 @@
 							<option value="${color[i]}">${color[i]}</option>
 						</c:forEach>
 					</c:if> 
-					
+			
 				</select>
 			</div>
 			
 		</div>
 		<div>
-			<div class="cartDiv"><button>장바구니</button></div>
-			<div class="payDiv"><button>바로결제</button></div>
+			<div class="cartDiv"><button onclick="cart()">장바구니</button></div>
+			<div class="payDiv"><button onclick="pay()">바로결제</button></div>
 		</div>
-	</div>
 </div>
-</form>
+
 
 <hr/>
 
 <!-- 상품 사진 -->
-<div>
+<%-- <div>
 <c:if test="${productVO.product_imgPathStock> 0}">
 	<c:forEach var="i" begin="1" end="${productVO.product_imgPathStock}" step="1">
 		<div class="infoImg" style="margin: 4%;">
@@ -144,11 +271,9 @@
 <hr/>
 <!-- REVIEW -->
 <b>총 개의 리뷰가 있습니다.</b>
-<hr/>
-<!-- Q&A -->
-<b>총 개의 문의가 있습니다.</b>
 
+ --%>
 </div>
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+<%-- <%@ include file="/WEB-INF/views/include/footer.jsp"%> --%>
 </body>
 </html>

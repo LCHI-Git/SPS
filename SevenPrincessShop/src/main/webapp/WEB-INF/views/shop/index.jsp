@@ -16,7 +16,12 @@
 <%@ include file="/WEB-INF/views/include/cardSilder.jsp"%>
 
 <h1>여기는 메인 Index 페이지 입니다.</h1>
-<h1>로그인을 하셨다면 유저의 정보 : ${nowUser.client_id }</h1>
+
+
+<h1>로그인을 하셨다면 유저의 정보 : ${nowUser.client_id}</h1>
+
+
+
 <h1>content</h1><br/>
 <h1>content</h1><br/>
 <h1>content</h1><br/>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sps.dao.spsDAO;
+import com.sps.vo.OrderListVO;
 import com.sps.vo.ProductVO;
 
 // 쇼핑몰 페이지 처리관련 기능을 담을 컨트롤러에요
@@ -38,10 +39,6 @@ public class ShopController {
 @RequestMapping(value = "/productInfo", method = RequestMethod.GET)
 public String productInfo(HttpServletRequest request, Model model) {
 	System.out.println("컨트롤러의 productInfo() 메소드 실행");
-	
-	
-	
-	
 	
 	spsDAO mapper = shopSqlSession.getMapper(spsDAO.class);
 	
@@ -75,8 +72,38 @@ public String productInfo(HttpServletRequest request, Model model) {
 	model.addAttribute("size", size);
 	model.addAttribute("color", color);
 	
+	return "shop/productInfo";
+}
+
+@RequestMapping(value = "/insertCart", method = RequestMethod.GET)
+public String insertCart(HttpServletRequest request, Model model) {
+	System.out.println("컨트롤러의 insertCart() 메소드 실행");
+	
+	spsDAO mapper = shopSqlSession.getMapper(spsDAO.class);
+	String orderList_client_idx = request.getParameter("orderList_client_idx");
+	String orderList_product_idx = request.getParameter("orderList_product_idx");
+	//System.out.println(orderList_product_idx);
+	String selectCode = request.getParameter("selectCode");
+	System.out.println(selectCode);
+	String[] options = selectCode.split("/");
+	String[] option = null;
+	for (int i = 0; i < options.length; i++) {
+		option = options[i].split("_");
+		String orderList_size = option[0];
+		String orderList_color = option[1];
+		String orderList_stock = option[2];
+			
+		mapper.insertCart(orderList_client_idx, orderList_product_idx, orderList_size, orderList_color, orderList_stock);
+				
+		}
+	
+	
+	
+	
+	
 	
 	return "shop/productInfo";
-}	
+}
+
 	
 }

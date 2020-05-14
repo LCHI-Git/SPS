@@ -4,34 +4,45 @@
 <mapper namespace="com.sps.dao.spsDAO">
 
 
-<!-- 특정 상품 컬러 종류 -->
+<!-- 유정 특정 상품 컬러 종류 -->
 <select id="getColor" parameterType="String" resultType="String">
 	SELECT stock_color 
 	FROM STOCK
 	WHERE stock_product_idx = #{param1}
-	GROUP BY stock_color;
+	GROUP BY stock_color
+	ORDER BY stock_color DESC;
 </select>
 
 
 
-<!-- 특정 상품 사이즈 종류 -->
+<!-- 유정 특정 상품 사이즈 종류 -->
 <select id="getSize" parameterType="String" resultType="String">
 	SELECT stock_size 
 	FROM STOCK
 	WHERE stock_product_idx = #{param1}
-	GROUP BY stock_size;
+	GROUP BY stock_size
+	ORDER BY stock_size DESC;
 </select>
 
 
 
 
-<!-- 특정 상품 정보 가지고 오기 -->
+<!-- 유정 특정 상품 정보 가지고 오기 -->
 <select id="getProductInfo" parameterType="String" resultType="com.sps.vo.ProductVO">
 SELECT * 
 FROM PRODUCT
 WHERE product_idx = #{param1}
 </select>
 
+<!-- 유정 장바구니에 담기 -->
+<insert id="insertCart" parameterType="String">
+	INSERT INTO ORDERLIST
+	(orderList_client_idx, orderList_product_idx, orderList_Status, orderList_size, orderList_color, orderList_stock)
+	VALUES
+	(#{param1}, #{param2}, 'cart', #{param3}, #{param4}, #{param5});
+ 
 
+
+</insert>
 
 </mapper>

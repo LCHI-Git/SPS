@@ -28,12 +28,19 @@
 		  	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			    <ul class="nav navbar-nav ml-auto">
 			    	<li class="nav-item">
-			    		<c:if test="${empty sessionScope.nowUser}">
+			    	
+			    	<c:choose>
+			    		<c:when test="${empty sessionScope.nowUser}">
 			        		<a class="nav-link" href="login">로그인</a>
-			        	</c:if>
-			        	<c:if test="${not empty sessionScope.nowUser}">
+			    		</c:when>
+			    		<c:when test="${sessionScope.nowUser.client_id=='비회원'}">
+			        		<a class="nav-link" href="login">로그인</a>
+			    		</c:when>
+			    		<c:otherwise>
 			        		<a class="nav-link" href="logout">로그아웃</a>
-			        	</c:if>
+			    		</c:otherwise>
+			    	</c:choose>
+
 				    </li>
 				    <li class="nav-item">
 				    	<a class="nav-link" href="myPage">마이페이지</a>

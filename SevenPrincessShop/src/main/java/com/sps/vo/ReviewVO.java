@@ -15,4 +15,112 @@ public class ReviewVO {
 	private String review_writeDate;	// 리뷰 날짜
 	private String review_imgPath;		// 리뷰 사진
 	
+	public ReviewVO() {	}
+
+	public ReviewVO(int review_idx, int review_client_idx, int review_client_name, int review_product_idx,
+			int review_product_name, String review_title, String review_content, int review_productGrade,
+			String review_writeDate, String review_imgPath) {
+		super();
+		this.review_idx = review_idx;
+		this.review_client_idx = review_client_idx;
+		this.review_client_name = review_client_name;
+		this.review_product_idx = review_product_idx;
+		this.review_product_name = review_product_name;
+		this.review_title = review_title;
+		this.review_content = review_content;
+		this.review_productGrade = review_productGrade;
+		this.review_writeDate = review_writeDate;
+		this.review_imgPath = review_imgPath;
+	}
+
+	public int getReview_idx() {
+		return review_idx;
+	}
+
+	public void setReview_idx(int review_idx) {
+		this.review_idx = review_idx;
+	}
+
+	public int getReview_client_idx() {
+		return review_client_idx;
+	}
+
+	public void setReview_client_idx(int review_client_idx) {
+		this.review_client_idx = review_client_idx;
+	}
+
+	public int getReview_client_name() {
+		return review_client_name;
+	}
+
+	public void setReview_client_name(int review_client_name) {
+		this.review_client_name = review_client_name;
+	}
+
+	public int getReview_product_idx() {
+		return review_product_idx;
+	}
+
+	public void setReview_product_idx(int review_product_idx) {
+		this.review_product_idx = review_product_idx;
+	}
+
+	public int getReview_product_name() {
+		return review_product_name;
+	}
+
+	public void setReview_product_name(int review_product_name) {
+		this.review_product_name = review_product_name;
+	}
+
+	public String getReview_title() {
+		return review_title;
+	}
+
+	public void setReview_title(String review_title) {
+		this.review_title = review_title;
+	}
+
+	public String getReview_content() {
+		return review_content;
+	}
+
+	public void setReview_content(String review_content) {
+		this.review_content = review_content;
+	}
+
+	public int getReview_productGrade() {
+		return review_productGrade;
+	}
+
+	public void setReview_productGrade(int review_productGrade) {
+		this.review_productGrade = review_productGrade;
+	}
+
+	public String getReview_writeDate() {
+		return review_writeDate;
+	}
+
+	public void setReview_writeDate(String review_writeDate) {
+		this.review_writeDate = review_writeDate;
+	}
+
+	public String getReview_imgPath() {
+		return review_imgPath;
+	}
+
+	public void setReview_imgPath(String review_imgPath) {
+		this.review_imgPath = review_imgPath;
+	}
+
+	@Override
+	public String toString() {
+		return "ReviewVO [review_idx=" + review_idx + ", review_client_idx=" + review_client_idx
+				+ ", review_client_name=" + review_client_name + ", review_product_idx=" + review_product_idx
+				+ ", review_product_name=" + review_product_name + ", review_title=" + review_title
+				+ ", review_content=" + review_content + ", review_productGrade=" + review_productGrade
+				+ ", review_writeDate=" + review_writeDate + ", review_imgPath=" + review_imgPath + "]";
+	}
+	
+	
 }

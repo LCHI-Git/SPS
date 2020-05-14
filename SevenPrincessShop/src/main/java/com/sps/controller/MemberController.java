@@ -45,6 +45,7 @@ SqlSession memberSqlSession;
 		System.out.println(memberSqlSession);
 		spsDAO mapper = memberSqlSession.getMapper(spsDAO.class);
 		
+
 		ClientVO user = mapper.selectById(client_id);
 		
 		session.setAttribute("nowUser", user);
