@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+
+div{
+	margin: 6px;
+}
+
+/* 콘텐츠 */
+#contents{
+	margin: 50px 10%;"
+	font-family: 'Do Hyeon', sans-serif;
+	font-weight: 400;
+	font-size: 1em;
+}
+
+/* 메인 콘텐츠 */
+#mainContents{
+	border: 1px solid #d4c8cc !important;
+	padding: 15px; 
+	width: 100%; 
+	height: 100vh;
+	margin: 30px 0;
+	
+}
+
+/* 메인 이미지 */
+.imgDiv{
+	width: 45%; 
+	float: left;
+	height: 100%;
+}
+img{
+	width: 100%; 
+	height: auto;
+}
+.explainClass{
+	width: 50%;
+	float: right;
+	text-align: left;
+	height: 100%;
+	padding-left: 3px;
+}
+/* product_name 글씨 */
+.nameDiv{
+	font-size: 2em;
+	font-weight: 700;
+}
+.priceTitle, .sizeTitle, .colorTitle{
+	width: auto;
+	margin: 0;
+}
+.price, .size, .color{
+	font-size: 1.3em;
+	font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

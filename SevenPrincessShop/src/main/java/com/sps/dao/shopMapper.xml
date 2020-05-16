@@ -10,7 +10,14 @@
 	FROM STOCK
 	WHERE stock_product_idx = #{param1}
 	GROUP BY stock_color
-	ORDER BY stock_color DESC;
+	ORDER BY stock_idx DESC;
+</select>
+
+<select id="getAllColor" parameterType="String" resultType="String">
+	SELECT stock_color 
+	FROM STOCK
+	WHERE stock_product_idx = #{param1}
+	ORDER BY stock_idx DESC;
 </select>
 
 
@@ -21,8 +28,25 @@
 	FROM STOCK
 	WHERE stock_product_idx = #{param1}
 	GROUP BY stock_size
-	ORDER BY stock_size DESC;
+	ORDER BY stock_idx DESC
 </select>
+
+<select id="getAllSize" parameterType="String" resultType="String">
+	SELECT stock_size 
+	FROM STOCK
+	WHERE stock_product_idx = #{param1}
+	ORDER BY stock_idx DESC
+</select>
+
+
+<!-- 유정 특정 상품  특정 사이즈 컬러별 종류 -->
+<select id="getStock" parameterType="String" resultType="String">
+	SELECT stock_stock 
+	FROM STOCK
+	WHERE stock_product_idx = #{param1}
+	ORDER BY stock_idx DESC
+</select>
+
 
 
 
@@ -40,9 +64,6 @@ WHERE product_idx = #{param1}
 	(orderList_client_idx, orderList_product_idx, orderList_Status, orderList_size, orderList_color, orderList_stock)
 	VALUES
 	(#{param1}, #{param2}, 'cart', #{param3}, #{param4}, #{param5});
- 
-
-
 </insert>
 
 </mapper>

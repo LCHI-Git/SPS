@@ -11,18 +11,26 @@ public interface spsDAO {
 
 	ClientVO selectById(String client_id);
 
-//	유정 상품사이즈 가져오기
+//	유정 상품 사이즈 가져오기
 	ArrayList<String> getSize(String product_idx);
 
-//	유정 상품색상가져오기
+//	유정 상품 색상 가져오기
 	ArrayList<String> getColor(String product_idx);
 
+//	유정 상품 재고 가져오기
+	ArrayList<String> getStock(String product_idx);
+	
 //	유정 상품정보가져오기
 	ProductVO getProductInfo(String product_idx);
 
 //	유정 카트에 정보 담기
-
 	void insertCart(String orderList_client_idx, String orderList_product_idx, String orderList_size,
 			String orderList_color, String orderList_stock);
+
+	ArrayList<String> getAllSize(String product_idx);
+
+	ArrayList<String> getAllColor(String product_idx);
+
+
 
 }
