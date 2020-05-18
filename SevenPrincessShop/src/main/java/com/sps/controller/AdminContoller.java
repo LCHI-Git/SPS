@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminContoller {
 	@RequestMapping(value="/customerService")
 	public String login(HttpServletRequest request, Model model) {
-		
-	return "admin/customerService";
+	
+		return "admin/customerService";
+	
 	}
 }

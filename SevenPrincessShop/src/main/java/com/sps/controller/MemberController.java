@@ -15,23 +15,13 @@ import com.sps.vo.ClientVO;
 @Controller
 public class MemberController {
 	
-@Autowired
-SqlSession memberSqlSession;
-	
-	
+	@Autowired
+	public SqlSession memberSqlSession;  
 	
 	@RequestMapping(value="/login")
 	public String login(HttpServletRequest request, Model model) {
-		
-		
-		
-	return "member/login";
-	
+		return "member/login";
 	}
-	
-	
-	
-	
 	
 	@RequestMapping(value="/loginCheck")
 	public String loginCheck(HttpSession session,HttpServletRequest request, Model model) {

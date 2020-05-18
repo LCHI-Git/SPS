@@ -5,7 +5,8 @@
 
 
 	<bean id="clientVO" class="com.sps.vo.ClientVO"/>
+	<bean id="productVO" class="com.sps.vo.ProductVO"/>
+	<bean id="shopSqlSession" class="shopsqlsession"/>
 	<bean id="mybatisSampleDAO" class="com.sps.dao.MybatisSampleDAO"/>
 	
-
 </beans>
