@@ -2,12 +2,14 @@ package com.sps.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FilenameUtils;
@@ -40,31 +42,138 @@ SqlSession memberSqlSession;
 	private String uploadPath;
 
 	
-	@RequestMapping(value="/login")
-	public String login(HttpServletRequest request, Model model) {
-		
+	@RequestMapping("/login")
+	public String login() {
+		System.out.println("******************login 메서드 실행, 끝*****************");
 		return "member/login";
+	}
+	@RequestMapping("/loginCheck")
+	public String loginOk(HttpSession session, HttpServletRequest request, Model model) {
+		System.out.println("******************loginCheck 메서드 실행*****************");
+		String id = request.getParameter("client_id");
+		String password = request.getParameter("client_password");
+		// id, password는 login.jsp에서 예외처리를 해줬기 때문에 무조건 값이 있음.
+		
+		System.out.println(id);
+		System.out.println(password);
+	
+		spsDAO mapper = memberSqlSession.getMapper(spsDAO.class);
+		ClientVO vo = mapper.selectById(id); //해당 id가 존재하지 않으면 vo는 null값임.
+		
+		if(vo==null) {
+			model.addAttribute("error","아이디 또는 비밀번호가 맞지 않습니다.");
+			
+			System.out.println("******************loginCheck 메서드 실행 끝1*****************");
+			return "member/login";  //로그인에 실패하면 다시 로그인 페이지로 가야함.
+		} else {
+			
+			String selectedpw = vo.getClient_password();	
+			if(!selectedpw.equals(password)) {
+				
+				model.addAttribute("error","아이디 또는 비밀번호가 맞지 않습니다.");
+				
+				System.out.println("******************loginCheck 메서드 실행 끝2*****************");
+				return "member/login";  //로그인에 실패하면 다시 로그인 페이지로 가야함.
+				
+			} else {
+				session.setAttribute("nowUser", vo);
+				
+				System.out.println("******************loginCheck 메서드 실행 끝3*****************");
+				return "shop/index"; 
+			}
+		}
+		
+	}
+	
+	@RequestMapping("/register")
+	public String register(HttpSession session, HttpServletRequest request, Model model) {
+		System.out.println("******************register 메서드 실행*****************");
+		session.setAttribute("OverChk", "notOverlap1"); //아직 아이디 중복이 안 되어있으니까 notOverlap1라고 표시
+		System.out.println("******************register 메서드 끝*****************");
+		return "member/register";
 	}
 	
 	
-	@RequestMapping(value="/loginCheck")
-	public String loginCheck(HttpSession session,HttpServletRequest request, Model model) {
+	@RequestMapping("/registerCheck")
+	public String loginCheck(HttpSession session, HttpServletResponse response, HttpServletRequest request, Model model, ClientVO clientVO) throws IOException {
+		System.out.println("******************registerCheck 메서드 실행*****************");
 		
-		System.out.println(request.getParameter("client_id"));
+		String years = request.getParameter("years");
+		String month = request.getParameter("month");
+		String day = request.getParameter("day");
+		String birtyday = years+month+day;
+		clientVO.setClient_birthday(birtyday);
 		
-		String client_id = request.getParameter("client_id");
-		String client_pw = request.getParameter("client_pw");
+		String phone1 = request.getParameter("phone1");
+		String phone2 = request.getParameter("phone2");
+		String phone3 = request.getParameter("phone3");
+		String client_phoneNumber = phone1+phone2+phone3;
+		clientVO.setClient_phoneNumber(client_phoneNumber);
 		
-		System.out.println(client_id+client_pw);
-		System.out.println(memberSqlSession);
+		String email1 = request.getParameter("email1");
+		String email2 = request.getParameter("email2");
+		String email = email1+"@"+email2;
+		clientVO.setClient_email(email);
+		
+		String addNum = request.getParameter("client_addressNumber");
+		String addr = request.getParameter("client_address");
+		String detailAddr = request.getParameter("client_dateilAddress");
+		
+		clientVO.setClient_addressNumber(addNum);
+		clientVO.setClient_address(addr);
+		clientVO.setClient_detailAddress(detailAddr);
+		
+		Date date = new Date();
+		SimpleDateFormat sdt = new SimpleDateFormat( "yyyy.MM.dd");
+		
+		
+		String client_registerDate = sdt.format(date);
+		clientVO.setClient_registerDate(client_registerDate);
+		
 		spsDAO mapper = memberSqlSession.getMapper(spsDAO.class);
 		
-		ClientVO user = mapper.selectById(client_id);
+		mapper.insert(clientVO);
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		
-		session.setAttribute("nowUser", user);
+		out.println("<script>");
+		out.println("alert('회원 가입이 완료되었습니다.');");
+		out.println("</script>");
+		out.flush();
 		
+		System.out.println("******************registerCheck 메서드 끝*****************");
+		return "shop/index";
+	}
+	@RequestMapping("/IdCheckForm")
+	public String IdCheckForm() {
+		System.out.println("******************IdCheckForm 메서드 실행, 끝*****************");
+		return "member/IdCheckForm";
+	}
+	@RequestMapping("/IdOverlapChk")
+	public String IdOverlapChk(HttpSession session, HttpServletRequest request, Model model) {
+		System.out.println("******************IdOverlapChk 메서드 실행*****************");
+		String id = request.getParameter("userId");
+		System.out.println(id);
+		spsDAO mapper = memberSqlSession.getMapper(spsDAO.class);
+		ClientVO vo = mapper.selectById(id); //해당 id가 존재하지 않으면 vo는 null값임.
+		if(vo==null) {//해당하는 아이디가 존재하지 않으면
+			session.setAttribute("OverChk", "notOverlapped"); //Overlapped는 안 되었다고 -1로 표시.
+			//model.addAttribute("Over","2");
+			System.out.println("존재 안 해요");
+		} else { // 존재하면
+			session.setAttribute("OverChk", "Overlapped");  //Overlapped 되었다고 1로 표시.
+			//model.addAttribute("Over","4");
+			System.out.println("존재해요ㅋㅋ");
+		}
 		
-	return "shop/index";
+		System.out.println("******************IdOverlapChk 메서드 끝*****************");
+		return "redirect:IdCheckForm";
+	}
+	@RequestMapping("/logout")
+	public String logout(HttpSession session, HttpServletRequest request, Model model) {
+		session.invalidate();
+		
+		return "shop/index";
 	}
 	
 	

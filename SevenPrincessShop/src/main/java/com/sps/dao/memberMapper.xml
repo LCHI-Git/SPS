@@ -4,10 +4,6 @@
 
 <mapper namespace="com.sps.dao.spsDAO">
 
-
-	<select id="selectById" parameterType="String" resultType="com.sps.vo.ClientVO">
-		SELECT * FROM CLIENT WHERE client_id = #{param1};
-	</select>
 	
 	<select id="countMember" resultType="int">
 		select count(*) from client
@@ -16,6 +12,28 @@
 	<select id="selectMember" parameterType="int" resultType="com.sps.vo.ClientVO">
 		SELECT * FROM CLIENT WHERE client_idx = #{param1};
 	</select>
+	
+	<!--//////////////// 로그인 파트/////////////////////// -->
+	<insert id="insert" parameterType="com.sps.vo.ClientVO">
+		insert into client (client_name, client_id, client_password, client_birthday, client_phoneNumber, client_email
+							, client_addressNumber, client_address, client_detailAddress, client_registerDate) 
+							values(#{client_name}, #{client_id}, #{client_password}, #{client_birthday}, 
+							#{client_phoneNumber},#{client_email}, #{client_addressNumber}, #{client_address},
+							#{client_detailAddress}, #{client_registerDate})
+	
+	</insert>
+	
+	<!-- idx로 일치하는 vo를 얻어온다. -->
+	<select id="selectByIdx" parameterType="int" resultType="com.sps.vo.ClientVO">
+		select * from client where client_idx = #{client_idx}
+	</select>
+	
+	<!-- id로 일치하는 vo를 얻어온다. -->
+	<select id="selectById" parameterType="String" resultType="com.sps.vo.ClientVO">
+		select * from client where client_id = #{client_id}
+	</select>
+
+	<!-- //////////////////////// 로그인 파트 끝 /////////////////////////-->
 	
  	<!-- ///////////////////////////05/20 혜인//////////////////////////////////////// -->
 	

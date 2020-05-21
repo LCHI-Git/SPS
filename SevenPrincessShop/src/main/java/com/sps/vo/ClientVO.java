@@ -10,6 +10,7 @@ public class ClientVO {
 	private String client_password;			// 고객 비밀번호
 	private String client_birthday;			// 고객 생일
 	private String client_phoneNumber;		// 고객 핸드폰번호
+	private String client_addressNumber;		// 고객 우편번호
 	private String client_address;			// 고객 주소
 	private String client_detailAddress;	// 고객 상세 주소
 	private String client_registerDate;		// 고객 가입 날짜
@@ -75,6 +76,16 @@ public class ClientVO {
 	}
 
 
+	public String getClient_email() {
+		return client_email;
+	}
+
+
+	public void setClient_email(String client_email) {
+		this.client_email = client_email;
+	}
+
+
 	public String getClient_address() {
 		return client_address;
 	}
@@ -94,15 +105,6 @@ public class ClientVO {
 		this.client_registerDate = client_registerDate;
 	}
 
-	public String getClient_email() {
-		return client_email;
-	}
-
-
-	public void setClient_email(String client_email) {
-		this.client_email = client_email;
-	}
-
 
 	public String getClient_detailAddress() {
 		return client_detailAddress;
@@ -111,6 +113,16 @@ public class ClientVO {
 
 	public void setClient_detailAddress(String client_detailAddress) {
 		this.client_detailAddress = client_detailAddress;
+	}
+
+
+	public String getClient_addressNumber() {
+		return client_addressNumber;
+	}
+
+
+	public void setClient_addressNumber(String client_addressNumber) {
+		this.client_addressNumber = client_addressNumber;
 	}
 
 

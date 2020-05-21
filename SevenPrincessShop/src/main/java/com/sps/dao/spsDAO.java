@@ -14,7 +14,6 @@ import com.sps.vo.ReviewVO;
 
 public interface spsDAO {
 
-	ClientVO selectById(String client_id);
 	
 	void insertMember(ClientVO clientVO);
 
@@ -24,8 +23,11 @@ public interface spsDAO {
 
 	ClientVO selectMember(int count);
 
-
-
+////////로그인 파트
+	ClientVO selectById(String client_id);
+	void insert(ClientVO vo);
+	ClientVO selectByIdx(int idx);
+////////////////////////로그인 끝
 	
 	
 	
